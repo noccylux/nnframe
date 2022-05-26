@@ -1,11 +1,14 @@
 # Build and Release Folders
 bin-debug/
 bin-release/
+bin/
+bin-int/
 [Oo]bj/
 [Bb]in/
 
 # Other files and folders
 .settings/
+.vs
 
 # Executables
 *.swf
