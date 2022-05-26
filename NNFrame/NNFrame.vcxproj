@@ -10,6 +10,29 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\NNFrame\tensor\basic_tensor.h" />
+    <ClInclude Include="src\NNFrame\tensor\computation_graph.h" />
+    <ClInclude Include="src\NNFrame\loss\MAELoss.h" />
+    <ClInclude Include="src\NNFrame\loss\MSELoss.h" />
+    <ClInclude Include="src\NNFrame\optim\optimizer.h" />
+    <ClInclude Include="src\NNFrame\log.h" />
+    <ClInclude Include="src\NNFrame.h" />
+    <ClInclude Include="src\NNFrame\core.h" />
+    <ClInclude Include="src\NNFrame\nn\activation.h" />
+    <ClInclude Include="src\NNFrame\nn\Linear.h" />
+    <ClInclude Include="src\NNFrame\nn\Module.h" />
+    <ClInclude Include="src\NNFrame\tensor\tensor.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\NNFrame\tensor\computation_graph.cpp" />
+    <ClCompile Include="src\NNFrame\loss\MAELoss.cpp" />
+    <ClCompile Include="src\NNFrame\loss\MSELoss.cpp" />
+    <ClCompile Include="src\NNFrame\optim\optimizer.cpp" />
+    <ClCompile Include="src\NNFrame\log.cpp" />
+    <ClCompile Include="src\NNFrame\nn\Linear.cpp" />
+    <ClCompile Include="src\NNFrame\tensor\tensor.cpp" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
@@ -57,7 +80,7 @@
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>NNFRAME_PLATFORM_WINDOWS;NNFRAME_BUILD_DLL;NNFRAME_BUILD_DLL_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
     </ClCompile>
     <Link>
@@ -71,7 +94,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>NNFRAME_PLATFORM_WINDOWS;NNFRAME_BUILD_DLL;NNFRAME_BUILD_DLLNDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
     </ClCompile>
     <Link>
@@ -81,12 +104,6 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <ClCompile Include="src\test.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="src\test.h" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

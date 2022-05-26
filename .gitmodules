@@ -1,0 +1,6 @@
+[submodule "NNFrame/thirdPart/spdlog"]
+	path = NNFrame/thirdPart/spdlog
+	url = https://github.com/gabime/spdlog
+[submodule "NNFrame/thirdPart/eigen"]
+	path = NNFrame/thirdPart/eigen
+	url = https://gitlab.com/libeigen/eigen.git

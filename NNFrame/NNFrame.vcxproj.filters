@@ -15,13 +15,64 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\test.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="src\test.h">
+    <ClInclude Include="src\NNFrame.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="src\NNFrame\tensor\tensor.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\NNFrame\core.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\NNFrame\log.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\NNFrame\nn\Linear.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\NNFrame\nn\Module.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\NNFrame\nn\activation.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\NNFrame\optim\optimizer.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\NNFrame\loss\MSELoss.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\NNFrame\loss\MAELoss.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\NNFrame\tensor\computation_graph.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\NNFrame\tensor\basic_tensor.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\NNFrame\tensor\tensor.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\NNFrame\log.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\NNFrame\nn\Linear.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\NNFrame\optim\optimizer.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\NNFrame\loss\MSELoss.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\NNFrame\loss\MAELoss.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\NNFrame\tensor\computation_graph.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
