@@ -4,7 +4,7 @@
 
 namespace BasicTensor {
 
-template<typename Scalar_, int NumIndices_, int Options_, typename IndexType_>
-class Tensor : public Eigen::Tensor {}; // Package Eigen::Tensor.
+template<typename Scalar_, int NumIndices_>
+class Tensor : public Eigen::Tensor<Scalar_, NumIndices_> {}; // Package Eigen::Tensor.
 
 }

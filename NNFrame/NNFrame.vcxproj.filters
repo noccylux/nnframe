@@ -51,6 +51,12 @@
     <ClInclude Include="src\NNFrame\tensor\basic_tensor.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="src\NNFrame\tensor\tensorShape.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\NNFrame\utilities.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\NNFrame\tensor\tensor.cpp">
@@ -72,6 +78,9 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="src\NNFrame\tensor\computation_graph.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\NNFrame\tensor\tensorShape.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

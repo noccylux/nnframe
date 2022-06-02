@@ -1,6 +1,7 @@
 #pragma once
 #include "../core.h"
 #include "basic_tensor.h"
+#include "tensorShape.h"
 #include <vector>
 #include <memory>
 #include <iostream>
@@ -14,15 +15,24 @@ using int64 = std::int64_t;
 using float32 = float;
 using float64 = double;
 
-template<typename T>
+template<typename T, int NumIndices_>
 class Tensor {
 /*
 * Based on Eigen matrix lib.
 * 
 */
+public: // 
+  BasicTensor::Tensor<T, NumIndices_> data; // Point to BasicTensor::Tensor .
+  void* grad;
+  TensorShape Shape;
+  
+  bool require_grad_ = true;
+  bool leaf_node;
+
 public:
   // Initialize
   //Tensor(typename T, );
+  int dims = 0;
   Tensor(std::initializer_list<int> list); // Initialize with list.
   Tensor(std::initializer_list<int> list, bool require_grad);
   ~Tensor();
@@ -43,7 +53,7 @@ public:
   //void backward();
   
   
-  //int* shape(); // Return an array.
+  const TensorShape& shape(); // Return a std::array
   //void int16();
   //void int32();
   //void int64();
@@ -53,11 +63,7 @@ public:
   //void display();
   //ostream& ostream << (ostream & ostream, const Tensor & tensor);
 
-private:
-  void* data; // Point to BasicTensor::Tensor .
-  void* grad; 
-  bool require_grad_ = true;
-  bool leaf_node;
+
 };
 
 //template<typename T>

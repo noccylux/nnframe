@@ -23,6 +23,8 @@
     <ClInclude Include="src\NNFrame\nn\Linear.h" />
     <ClInclude Include="src\NNFrame\nn\Module.h" />
     <ClInclude Include="src\NNFrame\tensor\tensor.h" />
+    <ClInclude Include="src\NNFrame\tensor\tensorShape.h" />
+    <ClInclude Include="src\NNFrame\utilities.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\NNFrame\tensor\computation_graph.cpp" />
@@ -32,6 +34,7 @@
     <ClCompile Include="src\NNFrame\log.cpp" />
     <ClCompile Include="src\NNFrame\nn\Linear.cpp" />
     <ClCompile Include="src\NNFrame\tensor\tensor.cpp" />
+    <ClCompile Include="src\NNFrame\tensor\tensorShape.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
