@@ -5,7 +5,7 @@
 namespace NNFrame{
 namespace nn {
 
-NNFRAME_API class Linear {
+class NNFRAME_API Linear {
 public:
 	Linear();
 public:

@@ -11,7 +11,10 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\NNFrame\tensor\basic_tensor.h" />
+    <ClInclude Include="src\NNFrame\nn\activation\activations.h" />
+    <ClInclude Include="src\NNFrame\nn\activation\include.h" />
+    <ClInclude Include="src\NNFrame\nn\activation\relu.h" />
+    <ClInclude Include="src\NNFrame\nn\activation\sigmoid.h" />
     <ClInclude Include="src\NNFrame\tensor\computation_graph.h" />
     <ClInclude Include="src\NNFrame\loss\MAELoss.h" />
     <ClInclude Include="src\NNFrame\loss\MSELoss.h" />
@@ -35,6 +38,10 @@
     <ClCompile Include="src\NNFrame\nn\Linear.cpp" />
     <ClCompile Include="src\NNFrame\tensor\tensor.cpp" />
     <ClCompile Include="src\NNFrame\tensor\tensorShape.cpp" />
+    <ClCompile Include="test\test1.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="cpp.hint" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
@@ -45,13 +52,13 @@
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
-    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v143</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
-    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <PlatformToolset>v143</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
@@ -85,6 +92,9 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NNFRAME_PLATFORM_WINDOWS;NNFRAME_BUILD_DLL;NNFRAME_BUILD_DLL_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <LanguageStandard_C>stdc17</LanguageStandard_C>
+      <AdditionalIncludeDirectories>$(SolutionDir)\NNFrame\thirdPart\spdlog\include;$(SolutionDir)\NNFrame\thirdPart\eigen\unsupported\Eigen\CXX11\</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -99,6 +109,9 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NNFRAME_PLATFORM_WINDOWS;NNFRAME_BUILD_DLL;NNFRAME_BUILD_DLLNDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <LanguageStandard_C>stdc17</LanguageStandard_C>
+      <AdditionalIncludeDirectories>$(SolutionDir)\NNFrame\thirdPart\spdlog\include;$(SolutionDir)\NNFrame\thirdPart\eigen\unsupported\Eigen\CXX11\</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>

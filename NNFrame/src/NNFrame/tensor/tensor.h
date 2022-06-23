@@ -1,9 +1,12 @@
 #pragma once
 #include "../core.h"
-#include "basic_tensor.h"
+//#include "../../../thirdPart/eigen/Eigen/Eigen"
+#include "Tensor"
 #include "tensorShape.h"
 #include <vector>
 #include <memory>
+#include <array>
+#include <variant>
 #include <iostream>
 
 namespace NNFrame{
@@ -15,28 +18,52 @@ using int64 = std::int64_t;
 using float32 = float;
 using float64 = double;
 
-template<typename T, int NumIndices_>
 class Tensor {
 /*
 * Based on Eigen matrix lib.
 * 
 */
 public: // 
-  BasicTensor::Tensor<T, NumIndices_> data; // Point to BasicTensor::Tensor .
+  void* data; // Point to Eigen::Tensor
   void* grad;
-  TensorShape Shape;
-  
+  std::shared_ptr<NNFrame::TensorShape> shape_;
+  int NumIndices = 0;
   bool require_grad_ = true;
-  bool leaf_node;
+  bool leaf_node = true;
 
 public:
   // Initialize
   //Tensor(typename T, );
-  int dims = 0;
-  Tensor(std::initializer_list<int> list); // Initialize with list.
-  Tensor(std::initializer_list<int> list, bool require_grad);
-  ~Tensor();
 
+  //template<typename T, int NumIndices_>
+  //NNFRAME_API init_grad {
+  //  grad = std::make_shared<Eigen::Tensor<T, NumIndices_>>(list);
+  //  
+  //}
+  
+  template<typename... T>
+  Tensor(T... dims) {
+    const int n = sizeof...(dims);
+    std::array<int64_t, n> dims_{};
+    this->NumIndices = n;
+    
+    int i = 0;
+    for (int x : { dims... }) {
+      dims_[i] = x;
+      std::cout << dims_[i] << " ";
+      i++;
+    }
+    std::cout << std::endl;
+    const std::array Dim = dims_;
+    data = new Eigen::Tensor<float, n>(Dim);
+    grad = new Eigen::Tensor<float, n>(Dim);
+  }
+
+  NNFRAME_API ~Tensor() {
+    delete this->data;
+    delete this->grad;
+    printf("Delet Tensor\n");
+  }
 public:
   
   //Tensor add(NNFrame::Tensor X);
@@ -53,7 +80,11 @@ public:
   //void backward();
   
   
-  const TensorShape& shape(); // Return a std::array
+  NNFRAME_API 
+  std::shared_ptr<TensorShape> shape() {
+    return shape_;
+  }
+
   //void int16();
   //void int32();
   //void int64();

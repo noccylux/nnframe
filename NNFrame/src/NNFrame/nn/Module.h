@@ -1,9 +1,9 @@
 #pragma once
 #include "../core.h"
-#include "../tensor.h"
+#include "../tensor/tensor.h"
 
 namespace NNFrame {
-	NNFRAME_API class Module {
+NNFRAME_API class Module {
 	/*
 	 * Module interface.
 	 */

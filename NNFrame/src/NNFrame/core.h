@@ -5,7 +5,7 @@
 		#define NNFRAME_API __declspec(dllexport)
 	#else
 		#define NNFRAME_API __declspec(dllimport)
-	#endif // 
+	#endif
 #else
 	#error NNFrame only support Windows!
 #endif
