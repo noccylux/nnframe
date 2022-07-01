@@ -5,15 +5,15 @@
 #include <vector>
 
 namespace NNFrame {
-NNFrame::int16 ADD = 1;
-NNFrame::int16 MUL = 2;
+int ADD = 1;
+int MUL = 2;
 } // namespace NNFrame
 
 namespace NNFrame{
 namespace ComputGraph {
 
 struct GraphNode {
-	NNFrame::int16 operate;
+	int operate;
 
 	// Point to BasicTensor::Tensor .
 	std::vector<void*> previous_Nodes;

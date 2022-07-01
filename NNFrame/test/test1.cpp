@@ -10,6 +10,7 @@ int main() {
 	//shape->print();
 	//std::cout << &my_tensor.data << std::endl;
 
+
 	NNFrame::Log::Init();
 	CORE_WARN("Initiaized Log!");
 	NF_INFO("Hello World!");

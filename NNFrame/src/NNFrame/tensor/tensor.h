@@ -1,6 +1,5 @@
 #pragma once
 #include "../core.h"
-//#include "../../../thirdPart/eigen/Eigen/Eigen"
 #include "Tensor"
 #include "tensorShape.h"
 #include <vector>
@@ -11,21 +10,19 @@
 
 namespace NNFrame{
 
-using int16 = std::int16_t;
-using int32 = std::int32_t;
-using int64 = std::int64_t;
-
-using float32 = float;
-using float64 = double;
+template<int NumIndices>
+using TemplateTensor = Eigen::Tensor<float, NumIndices>;
+using BasicTensor = std::variant<Eigen::Tensor<float, 1>, Eigen::Tensor<float, 2>, Eigen::Tensor<float, 3>,
+                                 Eigen::Tensor<float, 4>, Eigen::Tensor<float, 5>, Eigen::Tensor<float, 6>>;
 
 class Tensor {
 /*
 * Based on Eigen matrix lib.
-* 
+* Use float type.
 */
 public: // 
-  void* data; // Point to Eigen::Tensor
-  void* grad;
+  BasicTensor data; // Point to Eigen::Tensor
+  //BasicTensor grad;
   std::shared_ptr<NNFrame::TensorShape> shape_;
   int NumIndices = 0;
   bool require_grad_ = true;
@@ -55,13 +52,11 @@ public:
     }
     std::cout << std::endl;
     const std::array Dim = dims_;
-    data = new Eigen::Tensor<float, n>(Dim);
-    grad = new Eigen::Tensor<float, n>(Dim);
+    data = Eigen::Tensor<float, n>(Dim);
+    //grad = Eigen::Tensor<float, n>(Dim);
   }
 
   NNFRAME_API ~Tensor() {
-    delete this->data;
-    delete this->grad;
     printf("Delet Tensor\n");
   }
 public:
@@ -92,7 +87,12 @@ public:
   //void float64();
 
   //void display();
-  //ostream& ostream << (ostream & ostream, const Tensor & tensor);
+  friend std::ostream&& operator<< (std::ostream & ostream, const Tensor & tensor){
+    ostream << "Shape : [";
+    for (int i = 0; i < Tensor::NumIndices; i++) {
+
+    }
+  }
 
 
 };
